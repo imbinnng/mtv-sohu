@@ -4,6 +4,12 @@ import './globals.css'
 export const metadata: Metadata = {
   title: 'MTV - 在线视频网站',
   description: '最新最热的电视剧、电影、综艺等视频内容',
+  icons: {
+    icon: '/favicon.svg',
+    apple: '/favicon-192.png',
+    shortcut: '/favicon-192.png',
+  },
+  manifest: '/site.webmanifest',
 }
 
 export default function RootLayout({
@@ -13,6 +19,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="zh-CN">
+      <head>
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/favicon-192.png" sizes="192x192" />
+        <link rel="apple-touch-icon" href="/favicon-192.png" />
+      </head>
       <body className="min-h-screen bg-gray-50">{children}</body>
     </html>
   )
