@@ -6,8 +6,8 @@ export const metadata: Metadata = {
   description: '最新最热的电视剧、电影、综艺等视频内容',
   icons: {
     icon: '/favicon.svg',
-    apple: '/favicon-192.png',
-    shortcut: '/favicon-192.png',
+    apple: '/favicon-192.svg',
+    shortcut: '/favicon-192.svg',
   },
   manifest: '/site.webmanifest',
 }
@@ -21,8 +21,8 @@ export default function RootLayout({
     <html lang="zh-CN">
       <head>
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-        <link rel="icon" href="/favicon-192.png" sizes="192x192" />
-        <link rel="apple-touch-icon" href="/favicon-192.png" />
+        <link rel="icon" href="/favicon-192.svg" sizes="192x192" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/favicon-192.svg" />
       </head>
       <body className="min-h-screen bg-gray-50">{children}</body>
     </html>
