@@ -184,7 +184,7 @@ export default function VideoDetailPage({ params }: VideoDetailProps) {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
-    <Footer />
   )
 }

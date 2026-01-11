@@ -1,8 +1,10 @@
 'use client'
 
 import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
 import { Download, Play, Smartphone, Apple, QrCode, Check, Shield, Zap, Globe } from 'lucide-react'
 
 export default function DownloadPage() {
@@ -22,7 +24,7 @@ export default function DownloadPage() {
         {/* Download Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           {/* Mobile Download */}
-          <Card className="shadow-lg">
+          <Card className="border-2 border-primary shadow-lg">
             <CardHeader className="text-center pb-6">
               <div className="w-20 h-20 bg-primary rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <svg width="40" height="40" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -257,6 +259,7 @@ export default function DownloadPage() {
           </CardContent>
         </Card>
       </main>
+      <Footer />
     </div>
   )
 }

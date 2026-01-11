@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 import TVItem from '@/components/TVItem'
 import { Button } from '@/components/ui/button'
 
@@ -177,6 +178,7 @@ export default function ShortVideoPage() {
           </Button>
         </div>
       </main>
+      <Footer />
     </div>
   )
 }
