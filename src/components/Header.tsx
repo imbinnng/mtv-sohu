@@ -25,8 +25,13 @@ export default function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-primary rounded-md flex items-center justify-center">
-              <span className="text-white font-bold text-lg">M</span>
+            <div className="w-8 h-8 bg-primary rounded flex items-center justify-center">
+              <svg width="20" height="20" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="32" height="32" rx="6" fill="white"/>
+                <path d="M8 10h4v12H8V10z" fill="#dc2626"/>
+                <path d="M20 10h4v12h-4V10z" fill="#dc2626"/>
+                <path d="M14 8h4v14h-4V8z" fill="#dc2626"/>
+              </svg>
             </div>
             <span className="text-xl font-bold text-primary">MTV</span>
           </Link>
