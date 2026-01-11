@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 import VideoPlayer from '@/components/VideoPlayer'
 import CommentsSection from '@/components/CommentsSection'
 import { Button } from '@/components/ui/button'
@@ -184,5 +185,6 @@ export default function VideoDetailPage({ params }: VideoDetailProps) {
         </div>
       </div>
     </div>
+    <Footer />
   )
 }

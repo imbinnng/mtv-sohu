@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { Search, Menu, X } from 'lucide-react'
+import { Search, Menu, X, Download } from 'lucide-react'
 import { useState } from 'react'
 
 export default function Header() {
@@ -58,6 +58,12 @@ export default function Header() {
                 className="pl-10 w-64"
               />
             </div>
+            <Link href="/download">
+              <Button variant="outline" size="sm" className="flex items-center">
+                <Download className="h-4 w-4 mr-1" />
+                下载 App
+              </Button>
+            </Link>
             <Button variant="outline" size="sm">
               登录
             </Button>
@@ -96,6 +102,12 @@ export default function Header() {
                     className="pl-10 w-full"
                   />
                 </div>
+                <Link href="/download">
+                  <Button variant="outline" size="sm" className="w-full flex items-center justify-center">
+                    <Download className="h-4 w-4 mr-1" />
+                    下载 App
+                  </Button>
+                </Link>
                 <Button variant="outline" size="sm" className="w-full">
                   登录
                 </Button>
