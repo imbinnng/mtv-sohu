@@ -16,6 +16,7 @@ export default function Header() {
     { name: '综艺', href: '/variety' },
     { name: '动漫', href: '/anime' },
     { name: '纪录片', href: '/documentary' },
+    { name: '短视频', href: '/short-video' },
   ]
 
   return (
