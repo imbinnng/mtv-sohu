@@ -13,7 +13,7 @@ interface LoginModalProps {
 }
 
 export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
-  const [isLogin, setIsLogin] = useState(true)
+  const [isLogin, setIsLogin] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
   const [formData, setFormData] = useState({
     email: '',
@@ -233,13 +233,17 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
             </div>
           </div>
 
-          {/* Register Link */}
-          <div className="text-center pt-4">
+  {/* Register Link */}
+          <div className="text-center pt-4 border-t">
             <p className="text-sm text-gray-600">
               还没有账号？
-              <Link variant="link" className="text-primary hover:underline p-0 h-auto ml-1 text-sm" href="/register">
+              <button 
+                type="button"
+                onClick={() => window.location.href = '/register'}
+                className="text-primary hover:underline p-0 h-auto ml-1 text-sm bg-transparent border-0"
+              >
                 立即注册
-              </Link>
+              </button>
             </p>
           </div>
 
