@@ -237,13 +237,9 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
           <div className="text-center pt-4 border-t">
             <p className="text-sm text-gray-600">
               还没有账号？
-              <button 
-                type="button"
-                onClick={() => window.location.href = '/register'}
-                className="text-primary hover:underline p-0 h-auto ml-1 text-sm bg-transparent border-0"
-              >
+              <Link href="/register" className="text-primary hover:underline p-0 h-auto ml-1 text-sm">
                 立即注册
-              </button>
+              </Link>
             </p>
           </div>
 
