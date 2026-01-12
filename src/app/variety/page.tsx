@@ -2,7 +2,6 @@ import { Metadata } from 'next'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import TVItem from '@/components/TVItem'
-import { Button } from '@/components/ui/button'
 
 export const metadata: Metadata = {
   title: '综艺 - MTV 视频网站',
@@ -33,41 +32,41 @@ const varietyData = [
   },
   {
     id: 'variety3',
-    title: '乘风破浪的姐姐',
-    description: '女性励志成长综艺，展现30+女性的魅力',
+    title: '极限挑战',
+    description: '竞技挑战类真人秀，嘉宾完成各种极限任务',
     imageUrl: 'https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=300&h=400&fit=crop',
-    duration: '100分钟',
+    duration: '90分钟',
     rating: 8.3,
     year: 2023,
     category: '综艺'
   },
   {
     id: 'variety4',
-    title: '明星大侦探',
-    description: '推理破案综艺，明星嘉宾一起解开谜题',
+    title: '快乐大本营',
+    description: '经典娱乐综艺节目，明星访谈和游戏互动',
     imageUrl: 'https://images.unsplash.com/photo-1516214104703-d870798faf8f?w=300&h=400&fit=crop',
     duration: '90分钟',
-    rating: 9.0,
-    year: 2023,
-    category: '综艺'
-  },
-  {
-    id: 'variety5',
-    title: '吐槽大会',
-    description: '喜剧脱口秀节目，用幽默方式点评时事热点',
-    imageUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=400&fit=crop',
-    duration: '60分钟',
     rating: 7.8,
     year: 2023,
     category: '综艺'
   },
   {
-    id: 'variety6',
+    id: 'variety5',
     title: '中国好声音',
     description: '音乐选秀节目，发掘华语乐坛新声音',
+    imageUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=400&fit=crop',
+    duration: '120分钟',
+    rating: 7.9,
+    year: 2023,
+    category: '综艺'
+  },
+  {
+    id: 'variety6',
+    title: '歌手',
+    description: '顶级歌手竞技节目，展现音乐才华',
     imageUrl: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=300&h=400&fit=crop',
     duration: '90分钟',
-    rating: 7.5,
+    rating: 8.7,
     year: 2023,
     category: '综艺'
   }
@@ -75,32 +74,30 @@ const varietyData = [
 
 export default function VarietyPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-base-200">
       <Header />
       
       <main className="container mx-auto px-4 py-8">
         {/* Page Header */}
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">综艺</h1>
-            <p className="text-gray-600">最新最热门的综艺节目</p>
+            <h1 className="text-3xl font-bold text-base-content mb-2">综艺</h1>
+            <p className="text-base-content/70">最新最热门的综艺节目</p>
           </div>
-          <Button className="bg-primary hover:bg-primary/90">
+          <button className="btn btn-primary">
             筛选排序
-          </Button>
+          </button>
         </div>
 
         {/* Filter Tags */}
         <div className="flex flex-wrap gap-2 mb-8">
-          {['全部', '真人秀', '音乐', '访谈', '喜剧', '选秀', '亲子'].map((tag) => (
-            <Button
+          {['全部', '真人秀', '音乐', '喜剧', '访谈', '竞技'].map((tag) => (
+            <button
               key={tag}
-              variant={tag === '全部' ? 'default' : 'outline'}
-              size="sm"
-              className="text-sm"
+              className={`btn btn-sm ${tag === '全部' ? 'btn-primary' : 'btn-outline'}`}
             >
               {tag}
-            </Button>
+            </button>
           ))}
         </div>
 
@@ -113,9 +110,9 @@ export default function VarietyPage() {
 
         {/* Load More */}
         <div className="flex justify-center mt-12">
-          <Button variant="outline" size="lg" className="px-8">
+          <button className="btn btn-outline px-8">
             加载更多
-          </Button>
+          </button>
         </div>
       </main>
       <Footer />

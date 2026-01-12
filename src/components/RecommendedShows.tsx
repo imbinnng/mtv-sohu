@@ -1,6 +1,5 @@
 'use client'
 
-import { Button } from '@/components/ui/button'
 import TVItem from './TVItem'
 
 interface TVShow {
@@ -86,13 +85,13 @@ const recommendedShows: TVShow[] = [
 
 export default function RecommendedShows() {
   return (
-    <section className="py-12 bg-gray-50">
+    <section className="py-12 bg-base-200">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between mb-8">
-          <h2 className="text-3xl font-bold text-gray-900">推荐剧集</h2>
-          <Button variant="outline" className="text-primary">
+          <h2 className="text-3xl font-bold text-base-content">推荐剧集</h2>
+          <button className="btn btn-outline">
             查看更多
-          </Button>
+          </button>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">

@@ -2,7 +2,6 @@ import { Metadata } from 'next'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import TVItem from '@/components/TVItem'
-import { Button } from '@/components/ui/button'
 
 export const metadata: Metadata = {
   title: '电影 - MTV 视频网站',
@@ -75,32 +74,30 @@ const moviesData = [
 
 export default function MoviesPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-base-200">
       <Header />
       
       <main className="container mx-auto px-4 py-8">
         {/* Page Header */}
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">电影</h1>
-            <p className="text-gray-600">最新最热门的电影资源</p>
+            <h1 className="text-3xl font-bold text-base-content mb-2">电影</h1>
+            <p className="text-base-content/70">最新最热门的电影资源</p>
           </div>
-          <Button className="bg-primary hover:bg-primary/90">
+          <button className="btn btn-primary">
             筛选排序
-          </Button>
+          </button>
         </div>
 
         {/* Filter Tags */}
         <div className="flex flex-wrap gap-2 mb-8">
           {['全部', '动作片', '喜剧片', '爱情片', '科幻片', '恐怖片', '动画片'].map((tag) => (
-            <Button
+            <button
               key={tag}
-              variant={tag === '全部' ? 'default' : 'outline'}
-              size="sm"
-              className="text-sm"
+              className={`btn btn-sm ${tag === '全部' ? 'btn-primary' : 'btn-outline'}`}
             >
               {tag}
-            </Button>
+            </button>
           ))}
         </div>
 
@@ -113,9 +110,9 @@ export default function MoviesPage() {
 
         {/* Load More */}
         <div className="flex justify-center mt-12">
-          <Button variant="outline" size="lg" className="px-8">
+          <button className="btn btn-outline px-8">
             加载更多
-          </Button>
+          </button>
         </div>
       </main>
       <Footer />

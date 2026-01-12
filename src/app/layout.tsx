@@ -23,8 +23,9 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="icon" href="/favicon-192.svg" sizes="192x192" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/favicon-192.svg" />
+        <meta name="theme-color" content="#dc2626" />
       </head>
-      <body className="min-h-screen bg-gray-50">{children}</body>
+      <body className="min-h-screen bg-base-200 transition-colors duration-300">{children}</body>
     </html>
   )
 }

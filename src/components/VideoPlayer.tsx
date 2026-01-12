@@ -1,8 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import { Button } from '@/components/ui/button'
-import { Card, CardContent } from '@/components/ui/card'
 import { Play, Pause, Volume2, Maximize, Settings } from 'lucide-react'
 
 interface VideoPlayerProps {
@@ -57,130 +55,101 @@ export default function VideoPlayer({ videoUrl, title, poster }: VideoPlayerProp
   }
 
   return (
-    <div className="relative w-full bg-black rounded-lg overflow-hidden">
-      <video
-        id="video-player"
-        className="w-full aspect-video"
-        poster={poster}
-        onLoadedMetadata={(e) => {
-          const video = e.target as HTMLVideoElement
-          setDuration(video.duration)
-        }}
-        onTimeUpdate={(e) => {
-          const video = e.target as HTMLVideoElement
-          setCurrentTime(video.currentTime)
-        }}
-      >
-        <source src={videoUrl} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-
-      {/* Play/Pause Overlay Button */}
-      <div 
-        className="absolute inset-0 flex items-center justify-center bg-black/30 cursor-pointer"
-        onClick={togglePlay}
-      >
-        <Button 
-          variant="ghost" 
-          size="icon" 
-          className="h-16 w-16 rounded-full bg-white/20 hover:bg-white/30 text-white"
+    <div className="card bg-base-100 shadow-xl">
+      <div className="relative w-full bg-black rounded-lg overflow-hidden">
+        <video
+          id="video-player"
+          className="w-full aspect-video"
+          poster={poster}
+          onLoadedMetadata={(e) => {
+            const video = e.target as HTMLVideoElement
+            setDuration(video.duration)
+          }}
+          onTimeUpdate={(e) => {
+            const video = e.target as HTMLVideoElement
+            setCurrentTime(video.currentTime)
+          }}
         >
-          {isPlaying ? <Pause className="h-8 w-8" /> : <Play className="h-8 w-8 ml-1" />}
-        </Button>
-      </div>
+          <source src={videoUrl} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
 
-      {/* Video Controls */}
-      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-        {/* Progress Bar */}
-        <div className="mb-3">
-          <input
-            type="range"
-            min="0"
-            max={duration}
-            value={currentTime}
-            onChange={(e) => {
-              const newTime = parseFloat(e.target.value)
-              setCurrentTime(newTime)
-              const video = document.getElementById('video-player') as HTMLVideoElement
-              if (video) {
-                video.currentTime = newTime
-              }
-            }}
-            className="w-full h-1 bg-gray-600 rounded-lg appearance-none cursor-pointer slider"
-          />
-          <div className="flex justify-between text-xs text-white mt-1">
-            <span>{formatTime(currentTime)}</span>
-            <span>{formatTime(duration)}</span>
-          </div>
+        {/* Play/Pause Overlay Button */}
+        <div 
+          className="absolute inset-0 flex items-center justify-center bg-black/30 cursor-pointer"
+          onClick={togglePlay}
+        >
+          <button className="btn btn-circle btn-ghost bg-white/20 hover:bg-white/30 text-white">
+            {isPlaying ? <Pause className="h-8 w-8" /> : <Play className="h-8 w-8 ml-1" />}
+          </button>
         </div>
 
-        {/* Control Buttons */}
-        <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-3">
-            <Button
-              variant="ghost"
-              size="icon"
-              className="text-white hover:bg-white/20"
-              onClick={togglePlay}
-            >
-              {isPlaying ? <Pause className="h-5 w-5" /> : <Play className="h-5 w-5" />}
-            </Button>
+        {/* Video Controls */}
+        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+          {/* Progress Bar */}
+          <div className="mb-3">
+            <input
+              type="range"
+              min="0"
+              max={duration}
+              value={currentTime}
+              onChange={(e) => {
+                const newTime = parseFloat(e.target.value)
+                setCurrentTime(newTime)
+                const video = document.getElementById('video-player') as HTMLVideoElement
+                if (video) {
+                  video.currentTime = newTime
+                }
+              }}
+              className="range range-primary range-xs"
+            />
+            <div className="flex justify-between text-xs text-white mt-1">
+              <span>{formatTime(currentTime)}</span>
+              <span>{formatTime(duration)}</span>
+            </div>
+          </div>
 
-            {/* Volume Control */}
-            <div className="flex items-center space-x-2">
-              <Volume2 className="h-5 w-5 text-white" />
-              <input
-                type="range"
-                min="0"
-                max="1"
-                step="0.1"
-                value={volume}
-                onChange={(e) => handleVolumeChange(parseFloat(e.target.value))}
-                className="w-20 h-1 bg-gray-600 rounded-lg appearance-none cursor-pointer"
-              />
+          {/* Control Buttons */}
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-3">
+              <button
+                className="btn btn-ghost btn-sm text-white hover:bg-white/20"
+                onClick={togglePlay}
+              >
+                {isPlaying ? <Pause className="h-5 w-5" /> : <Play className="h-5 w-5" />}
+              </button>
+
+              {/* Volume Control */}
+              <div className="flex items-center space-x-2">
+                <Volume2 className="h-5 w-5 text-white" />
+                <input
+                  type="range"
+                  min="0"
+                  max="1"
+                  step="0.1"
+                  value={volume}
+                  onChange={(e) => handleVolumeChange(parseFloat(e.target.value))}
+                  className="range range-primary range-xs w-20"
+                />
+              </div>
+
+              <span className="text-white text-sm">{title}</span>
             </div>
 
-            <span className="text-white text-sm">{title}</span>
-          </div>
-
-          <div className="flex items-center space-x-2">
-            <Button
-              variant="ghost"
-              size="icon"
-              className="text-white hover:bg-white/20"
-            >
-              <Settings className="h-5 w-5" />
-            </Button>
-            <Button
-              variant="ghost"
-              size="icon"
-              className="text-white hover:bg-white/20"
-              onClick={toggleFullscreen}
-            >
-              <Maximize className="h-5 w-5" />
-            </Button>
+            <div className="flex items-center space-x-2">
+              <button className="btn btn-ghost btn-sm text-white hover:bg-white/20">
+                <Settings className="h-5 w-5" />
+              </button>
+              <button
+                className="btn btn-ghost btn-sm text-white hover:bg-white/20"
+                onClick={toggleFullscreen}
+              >
+                <Maximize className="h-5 w-5" />
+              </button>
+            </div>
           </div>
         </div>
       </div>
-
-      <style>{`
-        .slider::-webkit-slider-thumb {
-          appearance: none;
-          width: 12px;
-          height: 12px;
-          background: #ef4444;
-          cursor: pointer;
-          border-radius: 50%;
-        }
-        .slider::-moz-range-thumb {
-          width: 12px;
-          height: 12px;
-          background: #ef4444;
-          cursor: pointer;
-          border-radius: 50%;
-          border: none;
-        }
-      `}</style>
     </div>
   )
 }

@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import {Download } from 'lucide-react'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -103,24 +104,10 @@ export default function Footer() {
             </p>
             <Link
               href="/download"
-              className="inline-flex items-center bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors"
+              className="inline-flex items-center btn btn-primary hover:bg-primary/90 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="mr-2"
-              >
-                <path d="M12 15V3" />
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                <path d="m7 10 5 5-5" />
-              </svg>
+              <Download className="h-4 w-4" />
+
               立即下载
             </Link>
           </div>

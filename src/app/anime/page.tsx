@@ -2,7 +2,6 @@ import { Metadata } from 'next'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import TVItem from '@/components/TVItem'
-import { Button } from '@/components/ui/button'
 
 export const metadata: Metadata = {
   title: '动漫 - MTV 视频网站',
@@ -14,7 +13,7 @@ const animeData = [
   {
     id: 'anime1',
     title: '鬼灭之刃',
-    description: '大正时代，少年炭治郎为了让变成鬼的妹妹祢豆子变回人类而踏上征程',
+    description: '大正时代，少年炭治郎为了拯救变成鬼的妹妹而努力',
     imageUrl: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=300&h=400&fit=crop',
     duration: '24分钟',
     rating: 9.0,
@@ -25,7 +24,7 @@ const animeData = [
   {
     id: 'anime2',
     title: '间谍过家家',
-    description: '间谍父亲为完成任务而组建家庭，却不知妻子是杀手，女儿有读心术',
+    description: '间谍父亲为完成任务与杀手女孩组成假家庭的喜剧',
     imageUrl: 'https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=300&h=400&fit=crop',
     duration: '24分钟',
     rating: 8.8,
@@ -36,10 +35,10 @@ const animeData = [
   {
     id: 'anime3',
     title: '进击的巨人',
-    description: '人类与巨人的生存之战，真相层层揭晓的史诗级作品',
+    description: '人类与巨人的生存斗争，充满热血与悲壮',
     imageUrl: 'https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=300&h=400&fit=crop',
     duration: '24分钟',
-    rating: 9.2,
+    rating: 9.1,
     year: 2023,
     category: '动漫',
     episodes: 87
@@ -47,66 +46,64 @@ const animeData = [
   {
     id: 'anime4',
     title: '咒术回战',
-    description: '高中生虎杖悠仁为拯救他人而吞下特级咒物，从此卷入咒术世界',
+    description: '高中生虎杖悠仁卷入咒术世界的冒险故事',
     imageUrl: 'https://images.unsplash.com/photo-1516214104703-d870798faf8f?w=300&h=400&fit=crop',
     duration: '24分钟',
-    rating: 8.5,
+    rating: 8.7,
     year: 2023,
     category: '动漫',
     episodes: 24
   },
   {
     id: 'anime5',
-    title: '国王排名',
-    description: '弱小的王子波吉为了成为最伟大的国王而踏上冒险旅程',
+    title: '一拳超人',
+    description: '埼玉老师一拳就能解决任何对手的搞笑热血动漫',
     imageUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=400&fit=crop',
     duration: '24分钟',
     rating: 8.9,
     year: 2023,
     category: '动漫',
-    episodes: 23
+    episodes: 24
   },
   {
     id: 'anime6',
-    title: '辉夜大小姐想让我告白',
-    description: '精英学生会长的恋爱头脑战，谁能先告白谁就输了',
+    title: '排球少年',
+    description: '高中生日向翔阳在排球部成长的热血故事',
     imageUrl: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=300&h=400&fit=crop',
     duration: '24分钟',
-    rating: 8.3,
+    rating: 8.6,
     year: 2023,
     category: '动漫',
-    episodes: 37
+    episodes: 25
   }
 ]
 
 export default function AnimePage() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-base-200">
       <Header />
       
       <main className="container mx-auto px-4 py-8">
         {/* Page Header */}
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">动漫</h1>
-            <p className="text-gray-600">最新最热门的动漫番剧</p>
+            <h1 className="text-3xl font-bold text-base-content mb-2">动漫</h1>
+            <p className="text-base-content/70">最新最热门的动漫番剧</p>
           </div>
-          <Button className="bg-primary hover:bg-primary/90">
+          <button className="btn btn-primary">
             筛选排序
-          </Button>
+          </button>
         </div>
 
         {/* Filter Tags */}
         <div className="flex flex-wrap gap-2 mb-8">
-          {['全部', '热血', '恋爱', '科幻', '校园', '冒险', '悬疑'].map((tag) => (
-            <Button
+          {['全部', '热血', '治愈', '搞笑', '战斗', '校园'].map((tag) => (
+            <button
               key={tag}
-              variant={tag === '全部' ? 'default' : 'outline'}
-              size="sm"
-              className="text-sm"
+              className={`btn btn-sm ${tag === '全部' ? 'btn-primary' : 'btn-outline'}`}
             >
               {tag}
-            </Button>
+            </button>
           ))}
         </div>
 
@@ -119,9 +116,9 @@ export default function AnimePage() {
 
         {/* Load More */}
         <div className="flex justify-center mt-12">
-          <Button variant="outline" size="lg" className="px-8">
+          <button className="btn btn-outline px-8">
             加载更多
-          </Button>
+          </button>
         </div>
       </main>
       <Footer />

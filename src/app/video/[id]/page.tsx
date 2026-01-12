@@ -3,9 +3,6 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import VideoPlayer from '@/components/VideoPlayer'
 import CommentsSection from '@/components/CommentsSection'
-import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
 import { Star, Calendar, Clock, User } from 'lucide-react'
 
 interface VideoDetailProps {
@@ -28,8 +25,36 @@ const videoData = {
   category: '电视剧',
   director: '徐纪周',
   actors: ['张译', '张颂文', '李一桐', '张志坚'],
-  tags: ['扫黑除恶', '刑侦', '正剧', '现实主义']
+  tags: ['警匪', '悬疑', '剧情', '犯罪']
 }
+
+// Mock related videos
+const relatedVideos = [
+  {
+    id: '2',
+    title: '漫长的季节',
+    description: '一部充满怀旧色彩的悬疑剧',
+    imageUrl: 'https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=300&h=400&fit=crop',
+    rating: 8.9,
+    year: 2023
+  },
+  {
+    id: '3',
+    title: '三体',
+    description: '根据刘慈欣同名小说改编',
+    imageUrl: 'https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=300&h=400&fit=crop',
+    rating: 8.7,
+    year: 2023
+  },
+  {
+    id: '4',
+    title: '梦华录',
+    description: '古装爱情剧，改编自小说',
+    imageUrl: 'https://images.unsplash.com/photo-1516214104703-d870798faf8f?w=300&h=400&fit=crop',
+    rating: 8.8,
+    year: 2023
+  }
+]
 
 export async function generateMetadata({ params }: VideoDetailProps): Promise<Metadata> {
   return {
@@ -38,152 +63,145 @@ export async function generateMetadata({ params }: VideoDetailProps): Promise<Me
   }
 }
 
-export default function VideoDetailPage({ params }: VideoDetailProps) {
+export default async function VideoDetail({ params }: VideoDetailProps) {
+  const { id } = await params
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-base-200">
       <Header />
-      <div className="container mx-auto px-4 py-8">
+      
+      <main className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Main Content */}
-          <div className="lg:col-span-2 space-y-6">
+          <div className="lg:col-span-2">
             {/* Video Player */}
             <VideoPlayer 
-              videoUrl={videoData.videoUrl}
+              videoUrl={videoData.videoUrl} 
               title={videoData.title}
               poster={videoData.imageUrl}
             />
 
             {/* Video Info */}
-            <Card>
-              <CardHeader>
-                <div className="flex items-start justify-between">
-                  <div>
-                    <CardTitle className="text-2xl mb-2">{videoData.title}</CardTitle>
-                    <div className="flex items-center space-x-4 text-sm text-gray-600">
-                      <div className="flex items-center">
-                        <Star className="h-4 w-4 text-yellow-500 mr-1 fill-current" />
-                        {videoData.rating}
-                      </div>
-                      <span>{videoData.year}</span>
-                      <span>{videoData.category}</span>
-                      <span>共{videoData.episodes}集</span>
-                    </div>
-                  </div>
-                  <Button className="bg-primary hover:bg-primary/90">
-                    全部播放
-                  </Button>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-700 leading-relaxed mb-4">{videoData.description}</p>
+            <div className="card bg-base-100 shadow-lg mt-6">
+              <div className="card-body">
+                <h1 className="text-3xl font-bold mb-4">{videoData.title}</h1>
                 
+                {/* Video Stats */}
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="flex items-center gap-1">
+                    <Star className="h-5 w-5 text-warning fill-current" />
+                    <span className="font-semibold">{videoData.rating}</span>
+                  </div>
+                  <span className="text-base-content/70">{videoData.year}</span>
+                  <span className="text-base-content/70">{videoData.duration}</span>
+                  <span className="text-base-content/70">{videoData.episodes}集</span>
+                </div>
+
+                {/* Video Description */}
+                <p className="text-base-content mb-4">{videoData.description}</p>
+
+                {/* Cast & Crew */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                  <div>
+                    <span className="text-sm text-base-content/70">导演: </span>
+                    <span className="text-sm font-medium">{videoData.director}</span>
+                  </div>
+                  <div>
+                    <span className="text-sm text-base-content/70">主演: </span>
+                    <span className="text-sm font-medium">{videoData.actors.join(', ')}</span>
+                  </div>
+                </div>
+
                 {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-4">
+                <div className="flex flex-wrap gap-2">
                   {videoData.tags.map((tag) => (
-                    <Badge key={tag} variant="secondary">
+                    <span key={tag} className="badge badge-neutral">
                       {tag}
-                    </Badge>
+                    </span>
                   ))}
                 </div>
+              </div>
+            </div>
 
-                {/* Episode List */}
-                <div className="border-t pt-4">
-                  <h3 className="font-semibold mb-3">选集播放</h3>
-                  <div className="grid grid-cols-8 gap-2">
-                    {Array.from({ length: Math.min(videoData.episodes, 16) }, (_, i) => (
-                      <Button
-                        key={i + 1}
-                        variant={i === 0 ? "default" : "outline"}
-                        size="sm"
-                        className="text-xs"
-                      >
-                        {i + 1}
-                      </Button>
-                    ))}
-                    {videoData.episodes > 16 && (
-                      <Button variant="outline" size="sm" className="text-xs">
-                        更多
-                      </Button>
-                    )}
-                  </div>
+            {/* Episodes */}
+            <div className="card bg-base-100 shadow-lg my-6">
+              <div className="card-body">
+                <h2 className="card-title mb-4">选集</h2>
+                <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2">
+                  {Array.from({ length: videoData.episodes }, (_, i) => (
+                    <button 
+                      key={i + 1}
+                      className={`btn btn-sm ${i === 0 ? 'btn-primary' : 'btn-accent'}`}
+                    >
+                      {i + 1}
+                    </button>
+                  ))}
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
 
             {/* Comments Section */}
-            <CommentsSection videoId={params.id} />
+            <CommentsSection videoId={id} />
           </div>
 
           {/* Sidebar */}
           <div className="space-y-6">
-            {/* Cast & Crew */}
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">演职人员</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="flex items-center space-x-3">
-                  <User className="h-5 w-5 text-gray-500" />
-                  <div>
-                    <p className="font-medium">导演: {videoData.director}</p>
-                  </div>
-                </div>
-                <div>
-                  <p className="font-medium mb-2">主演:</p>
-                  <div className="flex flex-wrap gap-2">
-                    {videoData.actors.map((actor) => (
-                      <Badge key={actor} variant="outline">
-                        {actor}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Video Details */}
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">视频信息</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                <div className="flex items-center space-x-3">
-                  <Calendar className="h-4 w-4 text-gray-500" />
-                  <span className="text-sm">上映时间: {videoData.year}</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <Clock className="h-4 w-4 text-gray-500" />
-                  <span className="text-sm">单集时长: {videoData.duration}</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <Star className="h-4 w-4 text-gray-500" />
-                  <span className="text-sm">评分: {videoData.rating}</span>
-                </div>
-              </CardContent>
-            </Card>
-
             {/* Related Videos */}
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">相关推荐</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  {['漫长的季节', '三体', '去有风的地方'].map((title) => (
-                    <div key={title} className="flex space-x-3 cursor-pointer hover:bg-gray-50 p-2 rounded">
-                      <div className="w-20 h-14 bg-gray-300 rounded flex-shrink-0"></div>
-                      <div>
-                        <p className="font-medium text-sm">{title}</p>
-                        <p className="text-xs text-gray-500">1.2万次播放</p>
+            <div className="card bg-base-100 shadow-lg">
+              <div className="card-body">
+                <h2 className="card-title mb-4">相关视频</h2>
+                <div className="space-y-4">
+                  {relatedVideos.map((video) => (
+                    <div key={video.id} className="flex gap-3 cursor-pointer group">
+                      <div className="w-24 h-16 bg-base-300 rounded overflow-hidden flex-shrink-0">
+                        <img 
+                          src={video.imageUrl} 
+                          alt={video.title}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-200"
+                        />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-sm font-medium line-clamp-2 group-hover:text-primary transition-colors">
+                          {video.title}
+                        </h3>
+                        <p className="text-xs text-base-content/50 line-clamp-1">
+                          {video.description}
+                        </p>
+                        <div className="flex items-center gap-2 mt-1">
+                          <Star className="h-3 w-3 text-warning fill-current" />
+                          <span className="text-xs">{video.rating}</span>
+                          <span className="text-xs text-base-content/50">{video.year}</span>
+                        </div>
                       </div>
                     </div>
                   ))}
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
+
+            {/* Video Actions */}
+            <div className="card bg-base-100 shadow-lg">
+              <div className="card-body">
+                <h2 className="card-title mb-4">操作</h2>
+                <div className="space-y-3">
+                  <button className="btn btn-outline w-full">
+                    <User className="h-4 w-4 mr-2" />
+                    订阅频道
+                  </button>
+                  <button className="btn btn-outline w-full">
+                    <Calendar className="h-4 w-4 mr-2" />
+                    添加到收藏
+                  </button>
+                  <button className="btn btn-outline w-full">
+                    <Clock className="h-4 w-4 mr-2" />
+                    稍后观看
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </main>
+      
       <Footer />
     </div>
   )

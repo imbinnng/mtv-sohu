@@ -1,10 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Input } from '@/components/ui/input'
-import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import { Star, Heart, Share2, ThumbsUp, MessageCircle } from 'lucide-react'
 
 interface Comment {
@@ -88,105 +84,100 @@ export default function CommentsSection({ videoId }: CommentsSectionProps) {
   return (
     <div className="space-y-6">
       {/* Video Actions */}
-      <Card>
-        <CardContent className="pt-6">
+      <div className="card bg-base-100 shadow-lg">
+        <div className="card-body">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
-              <Button
-                variant={isLiked ? "default" : "outline"}
-                className={`${isLiked ? 'bg-primary' : ''}`}
+              <button
+                className={`btn btn-sm ${isLiked ? 'btn-primary' : 'btn-outline'}`}
                 onClick={handleVideoLike}
               >
                 <ThumbsUp className="h-4 w-4 mr-2" />
                 {likeCount}
-              </Button>
-              <Button variant="outline">
+              </button>
+              <button className="btn btn-sm btn-outline">
                 <Heart className="h-4 w-4 mr-2" />
                 收藏
-              </Button>
-              <Button variant="outline">
+              </button>
+              <button className="btn btn-sm btn-outline">
                 <Share2 className="h-4 w-4 mr-2" />
                 分享
-              </Button>
+              </button>
             </div>
             <div className="flex items-center space-x-2">
-              <Star className="h-5 w-5 text-yellow-500 fill-current" />
+              <Star className="h-5 w-5 text-warning fill-current" />
               <span className="font-semibold">9.2</span>
-              <span className="text-gray-500">(2.3k评价)</span>
+              <span className="text-base-content/50">(2.3k评价)</span>
             </div>
           </div>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
 
       {/* Add Comment */}
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center">
+      <div className="card bg-base-100 shadow-lg">
+        <div className="card-body">
+          <h2 className="card-title flex items-center">
             <MessageCircle className="h-5 w-5 mr-2" />
             发表评论
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
+          </h2>
           <div className="space-y-4">
             <textarea
               value={newComment}
               onChange={(e) => setNewComment(e.target.value)}
               placeholder="分享你的观后感..."
-              className="w-full p-3 border border-gray-300 rounded-md resize-none focus:outline-none focus:ring-2 focus:ring-primary"
+              className="textarea textarea-bordered w-full resize-none"
               rows={3}
             />
             <div className="flex justify-end">
-              <Button 
+              <button 
                 onClick={handleSubmitComment}
                 disabled={!newComment.trim()}
-                className="bg-primary hover:bg-primary/90"
+                className="btn btn-primary"
               >
                 发表评论
-              </Button>
+              </button>
             </div>
           </div>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
 
       {/* Comments List */}
-      <Card>
-        <CardHeader>
-          <CardTitle>精彩评论 ({comments.length})</CardTitle>
-        </CardHeader>
-        <CardContent>
+      <div className="card bg-base-100 shadow-lg">
+        <div className="card-body">
+          <h2 className="card-title mb-4">精彩评论 ({comments.length})</h2>
           <div className="space-y-6">
             {comments.map((comment) => (
               <div key={comment.id} className="flex space-x-3">
-                <Avatar className="h-10 w-10">
-                  <AvatarFallback>{comment.user.charAt(0)}</AvatarFallback>
-                </Avatar>
+                <div className="avatar placeholder">
+                  <div className="bg-neutral text-neutral-content rounded-full w-10 h-10">
+                    <span className="text-sm">{comment.user.charAt(0)}</span>
+                  </div>
+                </div>
                 <div className="flex-1">
                   <div className="flex items-center space-x-2 mb-2">
                     <span className="font-medium">{comment.user}</span>
-                    <span className="text-gray-500 text-sm">{comment.timestamp}</span>
+                    <span className="text-base-content/50 text-sm">{comment.timestamp}</span>
                   </div>
-                  <p className="text-gray-800 mb-3">{comment.content}</p>
+                  <p className="text-base-content mb-3">{comment.content}</p>
                   <div className="flex items-center space-x-4">
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      className={`${comment.isLiked ? 'text-primary' : 'text-gray-500'}`}
+                    <button
+                      className={`btn btn-ghost btn-sm ${comment.isLiked ? 'text-primary' : 'text-base-content/50'}`}
                       onClick={() => handleLikeComment(comment.id)}
                     >
                       <ThumbsUp className="h-4 w-4 mr-1" />
                       {comment.likes}
-                    </Button>
-                    <Button variant="ghost" size="sm" className="text-gray-500">
+                    </button>
+                    <button className="btn btn-ghost btn-sm text-base-content/50">
                       <MessageCircle className="h-4 w-4 mr-1" />
                       回复
-                    </Button>
+                    </button>
                   </div>
                 </div>
               </div>
             ))}
           </div>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
     </div>
   )
 }

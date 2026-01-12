@@ -7,42 +7,68 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: {
-        primary: {
-          DEFAULT: "#dc2626",
-          foreground: "#ffffff",
-        },
-        secondary: {
-          DEFAULT: "#f1f5f9",
-          foreground: "#0f172a",
-        },
-        destructive: {
-          DEFAULT: "#ef4444",
-          foreground: "#ffffff",
-        },
-        muted: {
-          DEFAULT: "#f8fafc",
-          foreground: "#64748b",
-        },
-        accent: {
-          DEFAULT: "#f1f5f9",
-          foreground: "#0f172a",
-        },
-        popover: {
-          DEFAULT: "#ffffff",
-          foreground: "#0f172a",
-        },
-        card: {
-          DEFAULT: "#ffffff",
-          foreground: "#0f172a",
-        },
-      },
-      borderRadius: {
-        lg: "0.5rem",
-        md: "calc(0.5rem - 2px)",
-        sm: "calc(0.5rem - 4px)",
+      animation: {
+        'fade-in': 'fadeIn 0.3s ease-in-out',
+        'fade-out': 'fadeOut 0.3s ease-in-out',
+        'slide-in-right': 'slideInRight 0.3s ease-out',
+        'slide-out-right': 'slideOutRight 0.3s ease-out',
       },
     },
   },
-  plugins: [],
+  plugins: [require('daisyui')],
+  daisyui: {
+    themes: [
+      {
+        light: {
+          primary: '#dc2626',
+          'primary-focus': '#b91c1c',
+          'primary-content': '#ffffff',
+          secondary: '#f1f5f9',
+          'secondary-focus': '#e2e8f0',
+          'secondary-content': '#0f172a',
+          accent: '#f1f5f9',
+          'accent-focus': '#e2e8f0',
+          'accent-content': '#0f172a',
+          neutral: '#3b4252',
+          'neutral-focus': '#2e3440',
+          'neutral-content': '#ffffff',
+          'base-100': '#ffffff',
+          'base-200': '#f8fafc',
+          'base-300': '#f1f5f9',
+          'base-content': '#1f2937',
+          'info': '#3b82f6',
+          'success': '#10b981',
+          'warning': '#f59e0b',
+          'error': '#ef4444',
+        },
+      },
+      {
+        dark: {
+          primary: '#dc2626',
+          'primary-focus': '#ef4444',
+          'primary-content': '#ffffff',
+          secondary: '#1f2937',
+          'secondary-focus': '#334155',
+          'secondary-content': '#f8fafc',
+          'accent': '#1f2937',
+          'accent-focus': '#334155',
+          'accent-content': '#f8fafc',
+          neutral: '#d1d5db',
+          'neutral-focus': '#4b5563',
+          'neutral-content': '#f8fafc',
+          'base-100': '#1f2937',
+          'base-200': '#111827',
+          'base-300': '#1f2937',
+          'base-content': '#f8fafc',
+          'info': '#60a5fa',
+          'success': '#10b981',
+          'warning': '#f59e0b',
+          'error': '#ef4444',
+        },
+      },
+    ],
+    logs: false,
+    prefix: '',
+    base: true,
+  },
 }

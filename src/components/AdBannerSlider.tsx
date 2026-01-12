@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Button } from '@/components/ui/button'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 interface AdBanner {
@@ -59,69 +58,63 @@ export default function AdBannerSlider() {
   }, [])
 
   return (
-    <div className="relative w-full h-96 overflow-hidden rounded-lg">
-      {/* Slides */}
-      <div className="relative h-full">
+    <div className="relative w-full h-96 rounded-lg overflow-hidden">
+      <div className="relative w-full h-full">
         {adBanners.map((banner, index) => (
           <div
             key={banner.id}
             className={`absolute inset-0 transition-opacity duration-1000 ${
-              index === currentSlide ? 'opacity-100' : 'opacity-0'
+              index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'
             }`}
           >
             <div 
-              className="w-full h-full bg-cover bg-center relative"
+              className="w-full h-full bg-cover bg-center"
               style={{ backgroundImage: `url(${banner.imageUrl})` }}
             >
-              <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+              <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
                 <div className="text-center text-white">
                   <h2 className="text-4xl font-bold mb-2">{banner.title}</h2>
                   <p className="text-xl mb-4">{banner.subtitle}</p>
-                  <Button 
-                    size="lg" 
-                    className="bg-primary hover:bg-primary/90"
+                  <button 
+                    className="btn btn-primary"
                     onClick={() => banner.link && window.open(banner.link, '_blank')}
                   >
                     立即观看
-                  </Button>
+                  </button>
                 </div>
               </div>
             </div>
           </div>
         ))}
-      </div>
 
-      {/* Navigation Buttons */}
-      <Button
-        variant="ghost"
-        size="icon"
-        className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/20 hover:bg-black/40 text-white"
-        onClick={prevSlide}
-      >
-        <ChevronLeft className="h-6 w-6" />
-      </Button>
-      <Button
-        variant="ghost"
-        size="icon"
-        className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/20 hover:bg-black/40 text-white"
-        onClick={nextSlide}
-      >
-        <ChevronRight className="h-6 w-6" />
-      </Button>
+        {/* Navigation Buttons */}
+        <button
+          className="absolute left-4 top-1/2 -translate-y-1/2 btn btn-circle bg-black/20 hover:bg-black/40 text-white border-none z-20"
+          onClick={prevSlide}
+        >
+          <ChevronLeft className="h-6 w-6" />
+        </button>
+        <button
+          className="absolute right-4 top-1/2 -translate-y-1/2 btn btn-circle bg-black/20 hover:bg-black/40 text-white border-none z-20"
+          onClick={nextSlide}
+        >
+          <ChevronRight className="h-6 w-6" />
+        </button>
 
-      {/* Dots Indicator */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
-        {adBanners.map((_, index) => (
-          <button
-            key={index}
-            className={`w-2 h-2 rounded-full transition-all ${
-              index === currentSlide 
-                ? 'bg-white w-8' 
-                : 'bg-white/50 hover:bg-white/75'
-            }`}
-            onClick={() => goToSlide(index)}
-          />
-        ))}
+        {/* Dots Indicator */}
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+          {adBanners.map((_, index) => (
+            <button
+              key={index}
+              className={`w-3 h-3 rounded-full transition-all ${
+                index === currentSlide 
+                  ? 'bg-white w-8' 
+                  : 'bg-white/50 hover:bg-white/75'
+              }`}
+              onClick={() => goToSlide(index)}
+            />
+          ))}
+        </div>
       </div>
     </div>
   )

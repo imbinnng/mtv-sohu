@@ -1,8 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import { Button } from '@/components/ui/button'
-import { Card, CardContent } from '@/components/ui/card'
 import { Film, Tv, Music, Gamepad2, BookOpen, Camera } from 'lucide-react'
 
 interface Category {
@@ -63,24 +61,24 @@ export default function TVCategory() {
     <section className="py-12">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between mb-8">
-          <h2 className="text-3xl font-bold text-gray-900">视频分类</h2>
-          <Button variant="outline" className="text-primary">
+          <h2 className="text-3xl font-bold text-base-content">视频分类</h2>
+          <button className="btn btn-outline">
             查看全部
-          </Button>
+          </button>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           {categories.map((category) => (
             <Link key={category.id} href={`/${category.id}`}>
-              <Card className={`cursor-pointer transition-all duration-200 hover:shadow-lg border-0 ${category.color}`}>
-                <CardContent className="p-6 text-center">
+              <div className={`card cursor-pointer transition-all duration-200 hover:shadow-lg border-0 ${category.color}`}>
+                <div className="card-body p-6 text-center">
                   <div className="flex justify-center mb-3">
                     {category.icon}
                   </div>
                   <h3 className="font-semibold text-lg mb-1">{category.name}</h3>
                   <p className="text-sm opacity-75">{category.description}</p>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             </Link>
           ))}
         </div>

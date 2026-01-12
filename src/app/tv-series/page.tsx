@@ -2,7 +2,6 @@ import { Metadata } from 'next'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import TVItem from '@/components/TVItem'
-import { Button } from '@/components/ui/button'
 
 export const metadata: Metadata = {
   title: '电视剧 - MTV 视频网站',
@@ -57,17 +56,6 @@ const tvSeriesData = [
   },
   {
     id: '5',
-    title: '警察荣誉',
-    description: '基层派出所民警的日常工作和生活写照',
-    imageUrl: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=300&h=400&fit=crop',
-    duration: '45分钟',
-    rating: 8.6,
-    year: 2022,
-    category: '电视剧',
-    episodes: 38
-  },
-  {
-    id: '6',
     title: '去有风的地方',
     description: '都市女性治愈剧，展现云南大理的田园风光',
     imageUrl: 'https://images.unsplash.com/photo-1516214104703-d870798faf8f?w=300&h=400&fit=crop',
@@ -76,37 +64,46 @@ const tvSeriesData = [
     year: 2023,
     category: '电视剧',
     episodes: 40
+  },
+  {
+    id: '6',
+    title: '警察荣誉',
+    description: '基层派出所民警的日常工作和生活写照',
+    imageUrl: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=300&h=400&fit=crop',
+    duration: '45分钟',
+    rating: 8.6,
+    year: 2022,
+    category: '电视剧',
+    episodes: 38
   }
 ]
 
 export default function TVSeriesPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-base-200">
       <Header />
       
       <main className="container mx-auto px-4 py-8">
         {/* Page Header */}
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">电视剧</h1>
-            <p className="text-gray-600">最新最热门的电视剧资源</p>
+            <h1 className="text-3xl font-bold text-base-content mb-2">电视剧</h1>
+            <p className="text-base-content/70">最新最热门的电视剧资源</p>
           </div>
-          <Button className="bg-primary hover:bg-primary/90">
+          <button className="btn btn-primary">
             筛选排序
-          </Button>
+          </button>
         </div>
 
         {/* Filter Tags */}
         <div className="flex flex-wrap gap-2 mb-8">
           {['全部', '国产剧', '韩剧', '美剧', '英剧', '日剧', '泰剧'].map((tag) => (
-            <Button
+            <button
               key={tag}
-              variant={tag === '全部' ? 'default' : 'outline'}
-              size="sm"
-              className="text-sm"
+              className={`btn btn-sm ${tag === '全部' ? 'btn-primary' : 'btn-outline'}`}
             >
               {tag}
-            </Button>
+            </button>
           ))}
         </div>
 
@@ -119,9 +116,9 @@ export default function TVSeriesPage() {
 
         {/* Load More */}
         <div className="flex justify-center mt-12">
-          <Button variant="outline" size="lg" className="px-8">
+          <button className="btn btn-outline px-8">
             加载更多
-          </Button>
+          </button>
         </div>
       </main>
       <Footer />
