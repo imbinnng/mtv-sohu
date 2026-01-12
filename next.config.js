@@ -7,7 +7,13 @@ const nextConfig = {
   // Enable React strict mode
   reactStrictMode: true,
   
-  // Configure webpack optimizations
+  // Add Turbopack configuration for Next.js 16
+  turbopack: {
+    // Turbopack-specific optimizations will go here when needed
+    // For now, this silences the warning about missing turbopack config
+  },
+  
+  // Configure webpack optimizations (used when webpack is explicitly requested)
   webpack: (config, { isServer, dev }) => {
     // Only apply these optimizations in production
     if (!dev && !isServer) {

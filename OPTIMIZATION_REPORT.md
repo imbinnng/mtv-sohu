@@ -87,8 +87,11 @@ location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg|webp|avif)$ {
 # 开发环境
 npm run dev
 
-# 生产构建
+# 生产构建（使用 webpack 优化）
 npm run build
+
+# 生产构建（使用 turbopack）
+npm run build:turbo
 
 # 构建分析
 npm run build:analyze
@@ -96,6 +99,16 @@ npm run build:analyze
 # 生产构建（显式环境变量）
 npm run build:production
 ```
+
+## ⚙️ Turbopack 兼容性
+
+由于 Next.js 16 默认使用 Turbopack，而我们的优化配置基于 Webpack，解决方案：
+
+1. **明确指定 Webpack**: `npm run build` 现在使用 `--webpack` 标志
+2. **Turbopack 支持**: 提供 `npm run build:turbo` 用于 Turbopack 构建
+3. **配置文件**: 添加了 `turbopack: {}` 配置以消除警告
+
+建议生产环境使用 webpack 版本以获得最佳优化效果。
 
 ## 🔍 监控建议
 

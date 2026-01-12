@@ -5,11 +5,12 @@
   "main": "index.js",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "build:analyze": "ANALYZE=true next build",
+    "build": "next build --webpack",
+    "build:turbo": "next build --turbopack",
+    "build:analyze": "ANALYZE=true next build --webpack",
     "start": "next start",
     "lint": "next lint",
-    "build:production": "NODE_ENV=production next build"
+    "build:production": "NODE_ENV=production next build --webpack"
   },
   "repository": {
     "type": "git",
