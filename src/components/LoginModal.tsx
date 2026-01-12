@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
@@ -233,12 +234,12 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
           </div>
 
           {/* Register Link */}
-          <div className="text-center pt-4 border-t">
+          <div className="text-center pt-4">
             <p className="text-sm text-gray-600">
               还没有账号？
-              <Button variant="link" className="text-primary hover:underline p-0 h-auto ml-1 text-sm">
+              <Link variant="link" className="text-primary hover:underline p-0 h-auto ml-1 text-sm" href="/register">
                 立即注册
-              </Button>
+              </Link>
             </p>
           </div>
 

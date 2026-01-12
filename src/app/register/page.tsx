@@ -161,7 +161,7 @@ export default function RegisterPage() {
                         type="button"
                         variant="ghost"
                         size="icon"
-                        className="absolute right-3 top-3 text-gray-400 hover:text-gray-600"
+                        className="absolute right-3 top-0 text-gray-400 hover:text-gray-600"
                         onClick={() => setShowPassword(!showPassword)}
                       >
                         {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
@@ -186,10 +186,10 @@ export default function RegisterPage() {
                         type="button"
                         variant="ghost"
                         size="icon"
-                        className="absolute right-3 top-3 text-gray-400 hover:text-gray-600"
+                        className="absolute right-3 top-0 text-gray-400 hover:text-gray-600"
                         onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                       >
-                        {showConfirmPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                        {showConfirmPassword ? <EyeOff className="h-2 w-4" /> : <Eye className="h-4 w-4" />}
                       </Button>
                     </div>
                   </div>
