@@ -6,9 +6,9 @@ import CommentsSection from '@/components/CommentsSection'
 import { Star, Calendar, Clock, User } from 'lucide-react'
 
 interface VideoDetailProps {
-  params: {
+  params: Promise<{
     id: string
-  }
+  }>
 }
 
 // Mock video data - in a real app, this would come from an API
