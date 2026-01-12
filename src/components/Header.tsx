@@ -19,6 +19,7 @@ export default function Header() {
     { name: '动漫', href: '/anime' },
     { name: '纪录片', href: '/documentary' },
     { name: '短视频', href: '/short-video' },
+    { name: '注册', href: '/register' },
   ]
 
   return (
@@ -97,7 +98,12 @@ export default function Header() {
                     key={item.name}
                     href={item.href}
                     className="text-gray-700 hover:text-primary transition-colors font-medium px-2 py-1"
-                    onClick={() => setIsMenuOpen(false)}
+                    onClick={() => {
+                      setIsMenuOpen(false)
+                      if (item.name === '注册') {
+                        window.location.href = '/register'
+                      }
+                    }}
                   >
                     {item.name}
                   </Link>
@@ -124,18 +130,29 @@ export default function Header() {
                       下载
                     </Button>
                   </Link>
-                  <Button 
-                    variant="outline" 
-                    size="sm" 
-                    className="w-full"
-                    onClick={() => {
-                      setIsLoginModalOpen(true)
-                      setIsMenuOpen(false)
-                    }}
-                  >
-                    <User className="h-4 w-4 mr-1" />
-                    登录
-                  </Button>
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="w-full"
+                  onClick={() => {
+                    setIsLoginModalOpen(true)
+                    setIsMenuOpen(false)
+                  }}
+                >
+                  <User className="h-4 w-4 mr-1" />
+                  登录
+                </Button>
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="w-full mt-2"
+                  onClick={() => {
+                    window.location.href = '/register'
+                    setIsMenuOpen(false)
+                  }}
+                >
+                  立即注册
+                </Button>
                 </div>
               </nav>
             </div>

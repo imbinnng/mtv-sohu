@@ -86,7 +86,7 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
           </div>
         </CardHeader>
 
-        <CardContent className="pt-0">
+        <CardContent className="pt-2">
           {isLogin ? (
             <form onSubmit={handleSubmit} className="space-y-4">
               {/* Email Input */}
@@ -179,7 +179,7 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
 
           {/* Divider */}
           <div className="relative my-6">
-            <div className="absolute inset-0 flex items-center">
+            <div className="inset-0 flex items-center">
               <div className="w-full border-t border-gray-300"></div>
               <span className="relative flex-shrink-0 bg-white px-4 text-sm text-gray-500">或</span>
               <div className="w-full border-t border-gray-300"></div>
