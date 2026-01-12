@@ -1,0 +1,121 @@
+{
+  "header": {
+    "logo": "MTV動画",
+    "searchPlaceholder": "動画を検索...",
+    "login": "ログイン",
+    "download": "ダウンロード",
+    "categories": {
+      "home": "ホーム",
+      "tvSeries": "ドラマ",
+      "movies": "映画",
+      "variety": "バラエティ",
+      "anime": "アニメ",
+      "documentary": "ドキュメンタリー",
+      "shortVideo": "ショート動画"
+    }
+  },
+  "pages": {
+    "home": {
+      "title": "MTV動画 - 最新のドラマ、映画、バラエティ番組をオンラインで視聴",
+      "recommended": "おすすめ番組",
+      "categories": "カテゴリー",
+      "trending": "トレンド",
+      "latest": "最新",
+      "topRated": "高評価"
+    },
+    "tvSeries": {
+      "title": "ドラマ - 国産ドラマ、韓国ドラマ、アメリカドラマをオンラインで視聴",
+      "domestic": "国産ドラマ",
+      "korean": "韓国ドラマ",
+      "american": "アメリカドラマ",
+      "japanese": "日本のドラマ",
+      "thai": "タイドラマ"
+    },
+    "movies": {
+      "title": "映画 - アクション、コメディ、SF映画をオンラインで視聴",
+      "action": "アクション",
+      "comedy": "コメディ",
+      "scifi": "SF",
+      "romance": "ラブストーリー",
+      "thriller": "スリラー"
+    },
+    "variety": {
+      "title": "バラエティ - リアリティショー、音楽、トーク番組",
+      "reality": "リアリティ",
+      "music": "音楽",
+      "talk": "トーク",
+      "game": "ゲーム"
+    },
+    "anime": {
+      "title": "アニメ - 少年漫画、ラブストーリー、SF、日常系",
+      "shounen": "少年漫画",
+      "romance": "ラブストーリー",
+      "scifi": "SF",
+      "sliceOfLife": "日常系"
+    },
+    "documentary": {
+      "title": "ドキュメンタリー - 自然、歴史、人文、科学ドキュメンタリー",
+      "nature": "自然",
+      "history": "歴史",
+      "culture": "文化",
+      "science": "科学"
+    },
+    "shortVideo": {
+      "title": "ショート動画 - 面白い、グルメ、旅行ショート動画",
+      "funny": "面白い",
+      "food": "グルメ",
+      "travel": "旅行",
+      "life": "生活"
+    }
+  },
+  "video": {
+    "play": "再生",
+    "pause": "一時停止",
+    "fullscreen": "フルスクリーン",
+    "exitFullscreen": "フルスクリーン終了",
+    "volume": "音量",
+    "relatedVideos": "関連動画",
+    "comments": "コメント",
+    "episodes": "エピソード",
+    "cast": "キャスト",
+    "director": "監督",
+    "genre": "ジャンル",
+    "year": "年",
+    "rating": "評価",
+    "description": "概要"
+  },
+  "components": {
+    "comments": {
+      "title": "コメント",
+      "writeComment": "コメントを書く...",
+      "submit": "送信",
+      "reply": "返信",
+      "like": "いいね",
+      "share": "共有",
+      "noComments": "コメントがありません"
+    },
+    "loginModal": {
+      "title": "ログイン",
+      "email": "メール",
+      "password": "パスワード",
+      "forgotPassword": "パスワードを忘れましたか？",
+      "loginBtn": "ログイン",
+      "register": "新しいアカウントを登録",
+      "socialLogin": "ソーシャルログイン"
+    }
+  },
+  "common": {
+    "loading": "読み込み中...",
+    "error": "エラー",
+    "retry": "再試行",
+    "close": "閉じる",
+    "cancel": "キャンセル",
+    "confirm": "確認",
+    "save": "保存",
+    "edit": "編集",
+    "delete": "削除",
+    "share": "共有",
+    "copy": "コピー",
+    "more": "その他"
+  }
+}

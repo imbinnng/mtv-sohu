@@ -4,20 +4,23 @@ import Link from 'next/link'
 import { Search, Menu, X, Download, User, Sun, Moon } from 'lucide-react'
 import { useState, useEffect } from 'react'
 import LoginModal from '@/components/LoginModal'
+import LanguageSelector from '@/components/LanguageSelector'
+import { useTranslation } from '@/lib/i18n'
 
 export default function Header() {
+  const { t } = useTranslation()
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false)
   const [isDarkMode, setIsDarkMode] = useState(false)
 
   const navItems = [
-    { name: '首页', href: '/' },
-    { name: '电视剧', href: '/tv-series' },
-    { name: '电影', href: '/movies' },
-    { name: '综艺', href: '/variety' },
-    { name: '动漫', href: '/anime' },
-    { name: '纪录片', href: '/documentary' },
-    { name: '短视频', href: '/short-video' },
+    { name: t('header.categories.home'), href: '/' },
+    { name: t('header.categories.tvSeries'), href: '/tv-series' },
+    { name: t('header.categories.movies'), href: '/movies' },
+    { name: t('header.categories.variety'), href: '/variety' },
+    { name: t('header.categories.anime'), href: '/anime' },
+    { name: t('header.categories.documentary'), href: '/documentary' },
+    { name: t('header.categories.shortVideo'), href: '/short-video' },
   ]
 
   const closeDrawer = () => {
@@ -74,7 +77,7 @@ export default function Header() {
                 <path d="M14 8h4v14h-4V8z" fill="white"/>
               </svg>
             </div>
-            <span className="text-xl font-bold text-primary">MTV</span>
+            <span className="text-xl font-bold text-primary">{t('header.logo', 'MTV')}</span>
           </Link>
         </div>
 
@@ -110,7 +113,7 @@ export default function Header() {
                 <Search className="h-4 w-4 opacity-70" />
                 <input 
                   type="text" 
-                  placeholder="搜索视频..." 
+                  placeholder={t('header.searchPlaceholder', '搜索视频...')} 
                   className="grow placeholder-opacity-70"
                 />
               </label>
@@ -119,7 +122,7 @@ export default function Header() {
             <Link href="/download">
               <button className="btn btn-outline btn-sm">
                 <Download className="h-4 w-4" />
-                <span className="ml-1">下载</span>
+                <span className="ml-1">{t('header.download', '下载')}</span>
               </button>
             </Link>
           
@@ -128,9 +131,12 @@ export default function Header() {
               onClick={() => setIsLoginModalOpen(true)}
             >
               <User className="h-4 w-4" />
-              <span className="ml-1">登录</span>
-            </button>
-            <label className="swap swap-rotate">
+              <span className="ml-1">{t('header.login', '登录')}</span>
+             </button>
+             
+             <LanguageSelector />
+             
+             <label className="swap swap-rotate">
               {/* this hidden checkbox controls the state */}
               <input type="checkbox" className="theme-controller" value="light" />
               {/* sun icon */}
@@ -194,7 +200,7 @@ export default function Header() {
                   <Search className="h-4 w-4 opacity-70" />
                   <input 
                     type="text" 
-                    placeholder="搜索视频..." 
+                    placeholder={t('header.searchPlaceholder', '搜索视频...')} 
                     className="grow placeholder-opacity-70"
                   />
                 </label>
@@ -209,7 +215,7 @@ export default function Header() {
                 }}
               >
                 <User className="h-4 w-4 mr-2" />
-                登录
+                {t('header.login', '登录')}
               </button>
 
               {/* Download Link */}

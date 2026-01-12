@@ -1,0 +1,121 @@
+{
+  "header": {
+    "logo": "MTV视频",
+    "searchPlaceholder": "搜索视频...",
+    "login": "登录",
+    "download": "下载",
+    "categories": {
+      "home": "首页",
+      "tvSeries": "电视剧",
+      "movies": "电影",
+      "variety": "综艺",
+      "anime": "动漫",
+      "documentary": "纪录片",
+      "shortVideo": "短视频"
+    }
+  },
+  "pages": {
+    "home": {
+      "title": "MTV视频 - 最新电视剧、电影、综艺在线观看",
+      "recommended": "推荐剧集",
+      "categories": "分类",
+      "trending": "热门",
+      "latest": "最新",
+      "topRated": "高分"
+    },
+    "tvSeries": {
+      "title": "电视剧 - 国产剧、韩剧、美剧在线观看",
+      "domestic": "国产剧",
+      "korean": "韩剧",
+      "american": "美剧",
+      "japanese": "日剧",
+      "thai": "泰剧"
+    },
+    "movies": {
+      "title": "电影 - 动作片、喜剧片、科幻片在线观看",
+      "action": "动作片",
+      "comedy": "喜剧片",
+      "scifi": "科幻片",
+      "romance": "爱情片",
+      "thriller": "惊悚片"
+    },
+    "variety": {
+      "title": "综艺 - 真人秀、音乐、访谈节目",
+      "reality": "真人秀",
+      "music": "音乐",
+      "talk": "访谈",
+      "game": "游戏"
+    },
+    "anime": {
+      "title": "动漫 - 热血、恋爱、科幻动漫",
+      "shounen": "热血",
+      "romance": "恋爱",
+      "scifi": "科幻",
+      "sliceOfLife": "日常"
+    },
+    "documentary": {
+      "title": "纪录片 - 自然、历史、人文纪录片",
+      "nature": "自然",
+      "history": "历史",
+      "culture": "人文",
+      "science": "科学"
+    },
+    "shortVideo": {
+      "title": "短视频 - 搞笑、美食、旅行短视频",
+      "funny": "搞笑",
+      "food": "美食",
+      "travel": "旅行",
+      "life": "生活"
+    }
+  },
+  "video": {
+    "play": "播放",
+    "pause": "暂停",
+    "fullscreen": "全屏",
+    "exitFullscreen": "退出全屏",
+    "volume": "音量",
+    "relatedVideos": "相关视频",
+    "comments": "评论",
+    "episodes": "选集",
+    "cast": "演员",
+    "director": "导演",
+    "genre": "类型",
+    "year": "年份",
+    "rating": "评分",
+    "description": "简介"
+  },
+  "components": {
+    "comments": {
+      "title": "评论",
+      "writeComment": "写下你的评论...",
+      "submit": "发表",
+      "reply": "回复",
+      "like": "点赞",
+      "share": "分享",
+      "noComments": "暂无评论"
+    },
+    "loginModal": {
+      "title": "登录",
+      "email": "邮箱",
+      "password": "密码",
+      "forgotPassword": "忘记密码？",
+      "loginBtn": "登录",
+      "register": "注册新账户",
+      "socialLogin": "社交登录"
+    }
+  },
+  "common": {
+    "loading": "加载中...",
+    "error": "出错了",
+    "retry": "重试",
+    "close": "关闭",
+    "cancel": "取消",
+    "confirm": "确认",
+    "save": "保存",
+    "edit": "编辑",
+    "delete": "删除",
+    "share": "分享",
+    "copy": "复制",
+    "more": "更多"
+  }
+}

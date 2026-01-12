@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import { TranslationProvider } from '@/lib/i18n'
 
 export const metadata: Metadata = {
   title: 'MTV - 在线视频网站',
@@ -25,7 +26,11 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/favicon-192.svg" />
         <meta name="theme-color" content="#dc2626" />
       </head>
-      <body className="min-h-screen bg-base-200 transition-colors duration-300">{children}</body>
+      <body className="min-h-screen bg-base-200 transition-colors duration-300">
+        <TranslationProvider>
+          {children}
+        </TranslationProvider>
+      </body>
     </html>
   )
 }

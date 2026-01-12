@@ -1,0 +1,121 @@
+{
+  "header": {
+    "logo": "MTV Video",
+    "searchPlaceholder": "Search videos...",
+    "login": "Login",
+    "download": "Download",
+    "categories": {
+      "home": "Home",
+      "tvSeries": "TV Series",
+      "movies": "Movies",
+      "variety": "Variety",
+      "anime": "Anime",
+      "documentary": "Documentary",
+      "shortVideo": "Short Video"
+    }
+  },
+  "pages": {
+    "home": {
+      "title": "MTV Video - Watch Latest TV Series, Movies & Variety Shows Online",
+      "recommended": "Recommended Shows",
+      "categories": "Categories",
+      "trending": "Trending",
+      "latest": "Latest",
+      "topRated": "Top Rated"
+    },
+    "tvSeries": {
+      "title": "TV Series - Watch Domestic, Korean, American & Japanese Dramas Online",
+      "domestic": "Domestic",
+      "korean": "Korean",
+      "american": "American",
+      "japanese": "Japanese",
+      "thai": "Thai"
+    },
+    "movies": {
+      "title": "Movies - Watch Action, Comedy, Sci-Fi & Romance Films Online",
+      "action": "Action",
+      "comedy": "Comedy",
+      "scifi": "Sci-Fi",
+      "romance": "Romance",
+      "thriller": "Thriller"
+    },
+    "variety": {
+      "title": "Variety - Reality Shows, Music & Talk Shows",
+      "reality": "Reality",
+      "music": "Music",
+      "talk": "Talk",
+      "game": "Game"
+    },
+    "anime": {
+      "title": "Anime - Shounen, Romance, Sci-Fi & Slice of Life",
+      "shounen": "Shounen",
+      "romance": "Romance",
+      "scifi": "Sci-Fi",
+      "sliceOfLife": "Slice of Life"
+    },
+    "documentary": {
+      "title": "Documentary - Nature, History, Culture & Science",
+      "nature": "Nature",
+      "history": "History",
+      "culture": "Culture",
+      "science": "Science"
+    },
+    "shortVideo": {
+      "title": "Short Video - Funny, Food, Travel & Life Clips",
+      "funny": "Funny",
+      "food": "Food",
+      "travel": "Travel",
+      "life": "Life"
+    }
+  },
+  "video": {
+    "play": "Play",
+    "pause": "Pause",
+    "fullscreen": "Fullscreen",
+    "exitFullscreen": "Exit Fullscreen",
+    "volume": "Volume",
+    "relatedVideos": "Related Videos",
+    "comments": "Comments",
+    "episodes": "Episodes",
+    "cast": "Cast",
+    "director": "Director",
+    "genre": "Genre",
+    "year": "Year",
+    "rating": "Rating",
+    "description": "Description"
+  },
+  "components": {
+    "comments": {
+      "title": "Comments",
+      "writeComment": "Write your comment...",
+      "submit": "Submit",
+      "reply": "Reply",
+      "like": "Like",
+      "share": "Share",
+      "noComments": "No comments yet"
+    },
+    "loginModal": {
+      "title": "Login",
+      "email": "Email",
+      "password": "Password",
+      "forgotPassword": "Forgot Password?",
+      "loginBtn": "Login",
+      "register": "Register New Account",
+      "socialLogin": "Social Login"
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "retry": "Retry",
+    "close": "Close",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "share": "Share",
+    "copy": "Copy",
+    "more": "More"
+  }
+}
