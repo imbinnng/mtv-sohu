@@ -36,7 +36,7 @@ export default function DownloadPage() {
               
               {/* Download buttons */}
               <div className="grid grid-cols-2 gap-4 mt-6">
-                <button className="btn bg-neutral hover:bg-neutral-focus text-neutral-content">
+                <button className="btn bg-neutral-focus text-neutral-content">
                   <Apple className="h-5 w-5" />
                   App Store
                 </button>

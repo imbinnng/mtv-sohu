@@ -130,6 +130,14 @@ export default function Header() {
               <User className="h-4 w-4" />
               <span className="ml-1">登录</span>
             </button>
+            <label className="swap swap-rotate">
+              {/* this hidden checkbox controls the state */}
+              <input type="checkbox" className="theme-controller" value="light" />
+              {/* sun icon */}
+              <Sun className="swap-on h-6 w-6" />
+              {/* moon icon */}
+              <Moon className="swap-off h-6 w-6" />
+            </label>
           </div>
         </div>
       </div>
